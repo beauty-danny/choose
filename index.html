@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src='function.js'></script>
+	</head>
+	<style>
+		*{
+			padding:0;
+			margin:0;
+			list-style:none;
+		}
+		.box{
+			width: 300px;
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+		}
+		.top{
+			height: 50px;
+			width:100%;
+		}
+		.top li{
+			height: 50px;
+			width:25%;
+			float: left;
+			text-align: center;
+			line-height: 50px;
+		}
+		li:nth-child(1){
+			background:red;
+		}
+		li:nth-child(2){
+			background:green;
+		}
+		li:nth-child(3){
+			background:blue;
+		}
+		li:nth-child(4){
+			background:yellow;
+		}
+		.bottom{
+			height:250px;
+			width:100%;
+			position: relative;
+		}
+		.bottom li{
+			height: 250px;
+			width:100%;
+			position: absolute;
+			left: 0;
+			top: 0;
+			overflow:hidden;
+			display: none;
+			line-height: 250px;
+			text-align: center;
+		}
+		.bottom li:nth-child(1){
+			display: block;
+		}
+	</style>
+	<script>
+		$(function(){
+		  var top_li=$('.top_li');
+		  var bottom_li=$('.bottom_li');
+		  for(var i=0;i<top_li.length;i++){
+		       top_li[i].index=i;
+		       top_li[i].onmouseover=function(){
+		        for(var j=0;j<top_li.length;j++){
+		          bottom_li[j].style.display='none';
+		          }       
+		        bottom_li[this.index].style.display='block';
+		        }  
+		      }
+		})
+	</script>
+	<body>
+		<div class="box">
+			<ul class='top'>
+				<li class='top_li'>1</li>
+				<li class='top_li'>2</li>
+				<li class='top_li'>3</li>
+				<li class='top_li'>4</li>
+			</ul>
+			<ul class='bottom'>
+				<li class='bottom_li'>1</li>
+				<li class='bottom_li'>2</li>
+				<li class='bottom_li'>3</li>
+				<li class='bottom_li'>4</li>
+			</ul>
+		</div>
+	</body>
+</html>
